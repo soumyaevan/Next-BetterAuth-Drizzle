@@ -1,4 +1,5 @@
 "use client";
+import UserTable from "@/app/components/user-table";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import { toast } from "sonner";
 const AdminDashboard = () => {
   const { data: session, isPending: loading } = authClient.useSession();
   const router = useRouter();
+
   useEffect(() => {
     if (!loading && !session) {
       toast.error("Login to continue");
@@ -19,10 +21,11 @@ const AdminDashboard = () => {
       router.push("/post-list");
     }
   }, [session, loading, router]);
+
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <p>Loading...</p>
       </div>
     );
   }
@@ -38,11 +41,18 @@ const AdminDashboard = () => {
     return null;
   }
   return (
-    <main className="max-w-6xl mx-auto">
+    <main className="max-w-6xl mx-auto p-6">
       <div>
-        <p>Admin Dashboard</p>
+        <p className="text-3xl font-bold text-center">Admin Dashboard</p>
       </div>
-      <div className="mt-5">{session && <h1>{session.user.name}</h1>}</div>
+      <div className="mt-5">
+        <h1 className="text-xl font-semibold mb-4 text-center">
+          Welcome, {session.user.name}
+        </h1>
+      </div>
+      <div className="mt-8">
+        <UserTable />
+      </div>
     </main>
   );
 };
