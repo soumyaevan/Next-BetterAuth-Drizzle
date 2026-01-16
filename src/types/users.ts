@@ -5,6 +5,9 @@ export interface UserResponse {
   emailVerified: boolean;
   role: string;
   image: string | null;
+  banned: boolean;
+  banReason: string | null;
+  banExpires: Date | null;
   createdAt: Date;
   updatedAt: Date;
 }

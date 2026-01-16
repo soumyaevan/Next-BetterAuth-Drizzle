@@ -49,7 +49,13 @@ export function LoginForm({
           }
         },
         onError: (ctx) => {
-          if (ctx.error.status === 403) {
+          if (ctx.error.code === "BANNED_USER") {
+            toast.error(
+              "This user is banned, Please contact the Administrator"
+            );
+            setIsLoading(false);
+            router.push("/");
+          } else if (ctx.error.status === 403) {
             toast.error("Please verify your email address");
             setIsLoading(false);
             router.push("/");
