@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js + Better Auth + Drizzle
+
+A modern full-stack authentication starter template built with Next.js, Better Auth, and Drizzle ORM.
+
+## Tech Stack
+
+- **Next.js** - React framework for production
+- **Better Auth** - Modern authentication library
+- **Drizzle ORM** - TypeScript ORM for SQL databases
+- **TypeScript** - Type safety and developer experience
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- Package manager (npm, yarn, or pnpm)
+- Database (PostgreSQL, MySQL, or SQLite)
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <your-repo-url>
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+```
+
+### Environment Variables
+
+```env
+DATABASE_URL=your_database_url
+BETTER_AUTH_SECRET=your_secret_key
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+### Database Setup
+
+```bash
+# Generate migrations
+npm run db:generate
+
+# Run migrations
+npm run db:migrate
+
+# (Optional) Seed database
+npm run db:seed
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── app/              # Next.js app directory
+├── components/       # React components
+├── lib/              # Utility functions and configurations
+├── db/               # Database schema and migrations
+└── public/           # Static assets
+```
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- 🔐 Secure authentication with Better Auth
+- 📊 Type-safe database queries with Drizzle
+- 🎨 Modern UI components
+- 📱 Responsive design
+- ⚡ Fast development with hot reload
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
