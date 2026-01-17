@@ -13,12 +13,18 @@ const ProfileSection = ({ name, email }: { name: string; email: string }) => {
           <p>Email:</p>
           <p>{email}</p>
         </div>
-        <div className="w-full mt-5 text-center">
+        <div className="w-full mt-5 text-center flex flex-col gap-5">
           <Link
             href="/change-password"
             className="bg-gray-300 text-black px-3 py-2 rounded"
           >
             Change Password
+          </Link>
+          <Link
+            href="/create-post"
+            className="bg-blue-300 text-black px-3 py-2 rounded"
+          >
+            Create New Post
           </Link>
         </div>
       </div>

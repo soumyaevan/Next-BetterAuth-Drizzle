@@ -15,3 +15,21 @@ export interface UserResponse {
 export interface UsersApiResponse {
   users: UserResponse[];
 }
+
+export interface PostRequest {
+  id: number;
+  title: string;
+  slug: string;
+  content: string;
+  authorId: string | null;
+  createdAt: Date | string;
+  updatedAt: Date | string | null;
+  author?: UserResponse;
+}
+
+export interface CreatePostRequest {
+  title: string;
+  slug: string;
+  content: string;
+  authorId: string;
+}
