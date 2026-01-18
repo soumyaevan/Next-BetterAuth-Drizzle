@@ -26,6 +26,12 @@ const ProfileSection = ({ name, email }: { name: string; email: string }) => {
           >
             Create New Post
           </Link>
+          <Link
+            href="/my-post"
+            className="bg-green-300 text-black px-3 py-2 rounded"
+          >
+            My Post
+          </Link>
         </div>
       </div>
     </aside>

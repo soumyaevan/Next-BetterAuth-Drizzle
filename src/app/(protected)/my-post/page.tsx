@@ -1,14 +1,16 @@
 "use client";
+
+import MyPostPagination from "@/app/components/MyPostPagination";
 import Pagination from "@/app/components/Pagination";
 import PostCard from "@/app/components/post-card";
 import { authClient } from "@/lib/auth-client"; // import the auth client
 import { PostRequest } from "@/types/users";
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { use, useEffect } from "react";
 import { toast } from "sonner";
 
-const PostListPage = ({
+const UserPostListPage = ({
   searchParams,
 }: {
   searchParams: Promise<{ page?: string; pageSize?: string }>;
@@ -20,10 +22,10 @@ const PostListPage = ({
   const { data: session, isPending: loading } = authClient.useSession();
   const router = useRouter();
   const { data, isPending, error } = useQuery({
-    queryKey: ["posts", pageNum, pageSizeNum],
+    queryKey: ["my-posts", pageNum, pageSizeNum],
     queryFn: async () => {
       const response = await fetch(
-        `/api/posts?page=${pageNum}&pageSize=${pageSizeNum}`
+        `/api/posts/myposts?page=${pageNum}&pageSize=${pageSizeNum}`
       );
       if (!response.ok) {
         const errorData = await response.json();
@@ -84,7 +86,7 @@ const PostListPage = ({
       </div>
       {posts && posts.length > 0 && (
         <div className="mt-8 mb-6">
-          <Pagination
+          <MyPostPagination
             page={pageNum}
             pageSize={pageSizeNum}
             totalItems={totalItems}
@@ -95,4 +97,4 @@ const PostListPage = ({
   );
 };
 
-export default PostListPage;
+export default UserPostListPage;

@@ -1,5 +1,4 @@
 "use client";
-import { ChangePasswordForm } from "@/app/components/change-password-form";
 import CreatePostForm from "@/app/components/create-post-form";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";

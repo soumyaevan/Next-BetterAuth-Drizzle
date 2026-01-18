@@ -22,7 +22,7 @@ export default function Page() {
     );
   }
   return (
-    <div className="max-w-6xl mx-auto px-4 my-5 flex flex-col justify-center">
+    <div className="max-w-6xl mx-auto px-4 my-5 flex flex-col justify-center w-full mt-10">
       <header className="px-2 my-4">
         <h1 className="text-3xl text-center">Sign Up</h1>
       </header>

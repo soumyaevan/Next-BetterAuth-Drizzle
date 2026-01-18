@@ -38,7 +38,7 @@ export default function ProtectedLayout({
   const email = session.user.email;
   return (
     <div className="flex flex-col md:flex-row grow overflow-hidden">
-      <div className="md:absolute">
+      <div className="md:absolute pt-15 md:pt-10">
         <ProfileSection name={userName} email={email} />
       </div>
       <main className="mt-20 max-w-6xl mx-auto">{children}</main>

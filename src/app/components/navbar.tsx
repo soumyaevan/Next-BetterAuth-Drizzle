@@ -29,7 +29,7 @@ const NavBar = () => {
         </div>
         <div>
           {session ? (
-            <div className="flex items-center justify-center gap-5">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-3">
               <p>{session.user.name}</p>
               <Button variant="outline" type="button" onClick={handleSignOut}>
                 Logout

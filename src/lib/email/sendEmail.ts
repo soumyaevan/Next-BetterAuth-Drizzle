@@ -1,13 +1,5 @@
 import nodemailer from "nodemailer";
-const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  auth: {
-    user: "alphonso29@ethereal.email",
-    pass: "RWDws4QzAnD8HZfZ2U",
-  },
-});
-
+import postmark from "postmark";
 export const sendEmail = async ({
   to,
   subject,
@@ -20,14 +12,28 @@ export const sendEmail = async ({
   link: string;
 }) => {
   try {
-    const info = await transporter.sendMail({
-      from: '"Soumya Sen" <reanna.beer60@ethereal.emaill>',
-      to: to,
-      subject: subject,
-      html: `<p>${text}</p><br/><a href=${link}>Verification Link</a>`,
+    // const info = await transporter.sendMail({
+    //   from: '"Soumya Sen" <reanna.beer60@ethereal.emaill>',
+    //   to: to,
+    //   subject: subject,
+    //   html: `<p>${text}</p><br/><a href=${link}>Verification Link</a>`,
+    // });
+    // console.log("Email sent:", info.messageId);
+    // return { success: true, info };
+    // Require:
+    // Send an email:
+    const client = new postmark.ServerClient(
+      process.env.POSTMARK_CLIENT as string
+    );
+
+    client.sendEmail({
+      From: "soumya@soumyasen.dev",
+      To: "soumya@soumyasen.dev",
+      Subject: subject,
+      HtmlBody: `<p>${text}</p><br/><a href=${link}>Verification Link</a>`,
+      TextBody: "Hello from Your Blog!",
+      MessageStream: "outbound",
     });
-    console.log("Email sent:", info.messageId);
-    return { success: true, info };
   } catch (error) {
     console.error("Email error:", error);
     return { success: false };
