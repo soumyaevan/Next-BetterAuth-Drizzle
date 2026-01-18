@@ -27,8 +27,8 @@ export const sendEmail = async ({
     );
 
     client.sendEmail({
-      From: "soumya@soumyasen.dev",
-      To: "soumya@soumyasen.dev",
+      From: process.env.POSTMARK_EMAIL as string,
+      To: (process.env.POSTMARK_EMAIL as string) || to,
       Subject: subject,
       HtmlBody: `<p>${text}</p><br/><a href=${link}>Verification Link</a>`,
       TextBody: "Hello from Your Blog!",
