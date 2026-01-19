@@ -11,6 +11,7 @@ import {
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { authClient } from "@/lib/auth-client";
+import LoaderElement from "./LoaderElement";
 
 const UserTable = () => {
   const queryClient = useQueryClient();
@@ -34,6 +35,7 @@ const UserTable = () => {
       <Card>
         <CardContent className="pt-6">
           <p className="text-center text-gray-500">Loading users...</p>
+          <LoaderElement />
         </CardContent>
       </Card>
     );

@@ -1,5 +1,6 @@
 "use client";
 import CreatePostForm from "@/app/components/create-post-form";
+import LoaderElement from "@/app/components/LoaderElement";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -17,7 +18,7 @@ const CreatePost = () => {
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

@@ -4,6 +4,7 @@ import { RequestPasswordResetForm } from "../components/requerst-password-reset-
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import LoaderElement from "../components/LoaderElement";
 
 const RequestPasswordReset = () => {
   const { data: session, isPending: loading } = authClient.useSession();
@@ -17,7 +18,7 @@ const RequestPasswordReset = () => {
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

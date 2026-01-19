@@ -1,5 +1,6 @@
 "use client";
 import EditPostForm from "@/app/components/edit-post-form";
+import LoaderElement from "@/app/components/LoaderElement";
 import { authClient } from "@/lib/auth-client";
 import { PostRequest } from "@/types/users";
 import { useQuery } from "@tanstack/react-query";
@@ -33,7 +34,7 @@ const EditPost = () => {
   if (loading || isPending) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

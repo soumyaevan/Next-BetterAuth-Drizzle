@@ -1,4 +1,5 @@
 "use client";
+import LoaderElement from "@/app/components/LoaderElement";
 import UserTable from "@/app/components/user-table";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
@@ -12,7 +13,7 @@ const AdminDashboard = () => {
   if (loading) {
     return (
       <div>
-        <p>Loading...</p>
+        <LoaderElement />
       </div>
     );
   }

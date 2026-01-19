@@ -1,6 +1,7 @@
 // src/app/(protected)/layout.tsx
 "use client";
 
+import LoaderElement from "@/app/components/LoaderElement";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -30,7 +31,7 @@ export default function ProtectedLayout({
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p>Loading...</p>
+        <LoaderElement />
       </div>
     );
   }

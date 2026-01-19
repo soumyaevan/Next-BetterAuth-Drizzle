@@ -14,7 +14,7 @@ const Pagination = ({
     <section className="container m-auto flex justify-center items-center">
       {page > 1 ? (
         <Link
-          href={`/post-list?page=${page - 1}`}
+          href={`/post-list?page=${page - 1}&pageSize=${pageSize}`}
           className="py-1 px-4 text-sm border rounded mr-2"
         >
           Prev
@@ -26,7 +26,7 @@ const Pagination = ({
       </span>
       {page < totalPages ? (
         <Link
-          href={`/post-list?page=${page + 1}`}
+          href={`/post-list?page=${page + 1}&pageSize=${pageSize}`}
           className="py-1 px-4 text-sm border rounded ml-2"
         >
           Next

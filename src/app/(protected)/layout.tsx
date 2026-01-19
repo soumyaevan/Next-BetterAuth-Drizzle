@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import ProfileSection from "../components/profile-section";
+import LoaderElement from "../components/LoaderElement";
 
 export default function ProtectedLayout({
   children,
@@ -25,7 +26,7 @@ export default function ProtectedLayout({
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p>Loading...</p>
+        <LoaderElement />
       </div>
     );
   }

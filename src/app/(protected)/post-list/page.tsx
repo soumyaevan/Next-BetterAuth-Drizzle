@@ -1,19 +1,18 @@
 "use client";
+import LoaderElement from "@/app/components/LoaderElement";
 import Pagination from "@/app/components/Pagination";
 import PostCard from "@/app/components/post-card";
 import { authClient } from "@/lib/auth-client"; // import the auth client
 import { PostRequest } from "@/types/users";
 import { useQuery } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { use, useEffect } from "react";
 import { toast } from "sonner";
 
-const PostListPage = ({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string; pageSize?: string }>;
-}) => {
-  const { page = "1", pageSize = "3" } = use(searchParams);
+const PostListPage = () => {
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page") || "1";
+  const pageSize = searchParams.get("pageSize") || "3";
   const pageNum = Number(page);
   const pageSizeNum = Number(pageSize);
 
@@ -47,7 +46,7 @@ const PostListPage = ({
   if (loading || isPending) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

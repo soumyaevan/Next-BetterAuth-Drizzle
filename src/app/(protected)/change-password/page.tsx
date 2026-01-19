@@ -1,5 +1,6 @@
 "use client";
 import { ChangePasswordForm } from "@/app/components/change-password-form";
+import LoaderElement from "@/app/components/LoaderElement";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -17,7 +18,7 @@ const ChangePassword = () => {
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

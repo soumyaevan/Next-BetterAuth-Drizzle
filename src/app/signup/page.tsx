@@ -4,6 +4,7 @@ import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import LoaderElement from "../components/LoaderElement";
 
 export default function Page() {
   const { data: session, isPending: loading } = authClient.useSession();
@@ -17,7 +18,7 @@ export default function Page() {
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

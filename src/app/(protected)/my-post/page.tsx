@@ -1,5 +1,6 @@
 "use client";
 
+import LoaderElement from "@/app/components/LoaderElement";
 import MyPostPagination from "@/app/components/MyPostPagination";
 import Pagination from "@/app/components/Pagination";
 import PostCard from "@/app/components/post-card";
@@ -47,7 +48,7 @@ const UserPostListPage = () => {
   if (loading || isPending) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }

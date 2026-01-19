@@ -4,6 +4,7 @@ import { ResetPasswordForm } from "../components/reset-password-form";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import LoaderElement from "../components/LoaderElement";
 
 const ResetPasswordPage = () => {
   const { data: session, isPending: loading } = authClient.useSession();
@@ -17,7 +18,7 @@ const ResetPasswordPage = () => {
   if (loading) {
     return (
       <div>
-        <p>Loading</p>
+        <LoaderElement />
       </div>
     );
   }
