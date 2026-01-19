@@ -6,16 +6,14 @@ import PostCard from "@/app/components/post-card";
 import { authClient } from "@/lib/auth-client"; // import the auth client
 import { PostRequest } from "@/types/users";
 import { useQuery } from "@tanstack/react-query";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { use, useEffect } from "react";
 import { toast } from "sonner";
 
-const UserPostListPage = ({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string; pageSize?: string }>;
-}) => {
-  const { page = "1", pageSize = "3" } = use(searchParams);
+const UserPostListPage = () => {
+  const searchParams = useSearchParams();
+  const page = searchParams.get("page") || "1";
+  const pageSize = searchParams.get("pageSize") || "3";
   const pageNum = Number(page);
   const pageSizeNum = Number(pageSize);
 

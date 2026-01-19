@@ -18,8 +18,8 @@ export async function GET(request: Request) {
     const pageSize = parseInt(searchParams.get("pageSize") || "3");
     const skip = (page - 1) * pageSize;
 
-    const allPosts = await db.select().from(posts);
-    const totalItems = allPosts.length;
+    // const allPosts = await db.select().from(posts);
+    // const totalItems = allPosts.length;
 
     const userPosts = await db
       .select({
@@ -42,6 +42,7 @@ export async function GET(request: Request) {
       .orderBy(desc(posts.id))
       .limit(pageSize)
       .offset(skip);
+    const totalItems = userPosts.length;
     return Response.json(
       {
         userPosts,
